@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'sections/index'
+
+  get 'sections/new'
+
+  get 'sections/create'
+
+  get 'sections/show'
+
+  get 'sections/edit'
+
+  get 'sections/update'
+
+  get 'sections/delete'
+
   # get 'demo/index'
   # root :to => "demo#index"
   root "demo#index"
