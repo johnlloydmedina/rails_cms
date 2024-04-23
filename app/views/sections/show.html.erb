@@ -1,39 +1,43 @@
-<%= link_to("<< Back to list", {:action => 'index'}, :class => 'back-link')%>
+<% @page_title = "Show Section" %>
 
-<div class="sections new">
-    <h2>Show Section</h2>
+<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
 
-    <%= form_for(:section, :url => {:action => 'show'}) do |f| %>
-    <table summary="Section form fields">
-        <tr>
-            <th>Name</th>
-            <td><%= f.text_field(:name) %></td>
-        </tr>
-        <tr>
-            <th>Position</th>
-            <td><%= f.text_field(:position) %></td>
-        </tr>
-        <tr>
-            <th>Visible</th>
-            <td><%= f.text_field(:visible) %></td>
-        </tr>
-        <tr>
-            <th>Page</th>
-            <td><%= f.text_field(:page_id) %></td>
-        </tr>
-        <tr>
-            <th>Content Type</th>
-            <td><%= f.text_field(:content_type) %></td>
-        </tr>
-        <tr>
-            <th>Content</th>
-            <td><%= f.text_field(:content) %></td>
-        </tr>
-        <tr>
-    </table>
+<div class="sections show">
+  <h2>Show Section</h2>
 
-    <div class="form-buttons">
-        <%= submit_tag("Submit") %>
-    </div>
-    <% end %>
+  <table summary="Section detail view">
+    <tr>
+      <th>Page ID</th>
+      <td><%= @section.page_id %></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><%= @section.name %></td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td><%= @section.position %></td>
+    </tr>
+    <tr>
+      <th>Visible?</th>
+      <td><%= @section.visible ? 'true' : 'false' %></td>
+    </tr>
+    <tr>
+      <th>Content Type</th>
+      <td><%= @section.content_type %></td>
+    </tr>
+    <tr>
+      <th>Content</th>
+      <td><%= @section.content %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @section.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @section.updated_at %></td>
+    </tr>
+  </table>
+
 </div>
