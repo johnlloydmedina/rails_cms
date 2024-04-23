@@ -19,4 +19,12 @@ class DemoController < ApplicationController
     redirect_to("https://google.com")
   end
 
+  def text_helpers
+    
+  end
+
+  def escape_output
+    
+  end
+
 end
