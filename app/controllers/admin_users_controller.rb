@@ -1,5 +1,6 @@
-class AdminUserController < ApplicationController
-  layout "admin"
+class AdminUsersController < ApplicationController
+
+  layout 'admin'
 
   before_action :confirm_logged_in
 
@@ -14,10 +15,10 @@ class AdminUserController < ApplicationController
   def create
     @admin_user = AdminUser.new(admin_user_params)
     if @admin_user.save
-      flash[:notice] = "Admin User successfully created"
+      flash[:notice] = 'Admin user created.'
       redirect_to(:action => 'index')
     else
-      render('new')
+      render("new")
     end
   end
 
@@ -28,10 +29,10 @@ class AdminUserController < ApplicationController
   def update
     @admin_user = AdminUser.find(params[:id])
     if @admin_user.update_attributes(admin_user_params)
-      flash[:notice] = "Admin User successfully created"
+      flash[:notice] = 'Admin user updated.'
       redirect_to(:action => 'index')
     else
-      render('edit')
+      render("edit")
     end
   end
 
@@ -40,14 +41,16 @@ class AdminUserController < ApplicationController
   end
 
   def destroy
-    @admin_user = AdminUser.find(params[:id]).destroy
-    flash[:notice] = "Admin User has been deleted"
+    AdminUser.find(params[:id]).destroy
+    flash[:notice] = "Admin user destroyed."
     redirect_to(:action => 'index')
   end
 
   private
 
   def admin_user_params
-    params.require(:admin_user).permit(:first_name, :last_name, :email, :username, :password)
+    params.require(:admin_user).permit(:first_name, :last_name,
+      :email, :username, :password)
   end
+
 end
