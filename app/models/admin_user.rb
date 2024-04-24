@@ -6,6 +6,12 @@ class AdminUser < ApplicationRecord
     has_many :section_edits
     has_many :sections, :through => :section_edits
 
+    scope :sorted, lambda { order("last_name ASC, first_name ASC")}
+
+    def name
+        "#{first_name} #{last_name}"
+    end
+
     EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
     FORBIDDEN_USERNAMES = ['littlebopeep', 'humptydumpty']
     # validates_presence_of :first_name
